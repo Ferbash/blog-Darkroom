@@ -2,46 +2,104 @@
 layout: default
 ---
 
-<div style="text-align:center; margin-bottom:10px;">
-  <img src="{{ site.baseurl }}/logo/logo.png" alt="Logo" style="max-width:180px; max-height:120px; display:block; margin:0 auto 10px auto; border-radius:12px; box-shadow:0 2px 8px #0002;">
+<style>
+  body {
+    font-family: "Georgia", "Times New Roman", serif; /* Fuente clásica serif */
+    color: #333;
+    line-height: 1.6;
+    background-color: #fff;
+  }
+  
+  .site-title-custom {
+    font-family: "Georgia", serif;
+    font-size: 4em;
+    color: #b04b39; /* Rojo terracota similar al ejemplo */
+    text-align: center;
+    margin-top: 40px;
+    font-weight: normal;
+  }
+
+  .nav-menu-custom {
+    text-align: center;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+    margin: 20px 0 40px 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9em;
+    color: #666;
+  }
+
+  .nav-menu-custom a {
+    text-decoration: none;
+    color: #666;
+    margin: 0 15px;
+  }
+
+  .post-entry {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 60px;
+    align-items: flex-start;
+  }
+
+  .post-content-preview {
+    flex: 1;
+    min-width: 300px;
+  }
+
+  .post-content-preview h2 {
+    font-size: 2.2em;
+    color: #1a3a5a; /* Azul oscuro elegante */
+    margin-top: 0;
+  }
+
+  .post-image-preview {
+    flex: 1;
+    min-width: 300px;
+  }
+
+  .post-image-preview img {
+    width: 100%;
+    border: 1px solid #ddd;
+    padding: 5px;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+</style>
+
+<h1 class="site-title-custom">Darkroom Photography</h1>
+<div style="text-align: center; color: #1a3a5a; letter-spacing: 1px; margin-bottom: 10px;">
+  || FOTOGRAFÍA ANALÓGICA & REVELADO QUÍMICO ||
 </div>
-<header style="text-align: center; padding: 40px 0; border-bottom: 2px solid #111; margin-bottom: 40px;">
-  <h1 style="font-size: 3.5em; font-weight: 900; letter-spacing: -2px; margin: 0; text-transform: uppercase;">
-    Darkroom
-  </h1>
-  <p style="font-size: 1.2em; color: #555; margin-top: 10px; font-style: italic;">
-    Un paseo por fotografía química
-  </p>
-</header>
+
+<nav class="nav-menu-custom">
+  <a href="{{ site.baseurl }}/">Inicio</a> | 
+  <a href="{{ site.baseurl }}/about">Sobre mí</a> | 
+  <a href="#">Galería</a> | 
+  <a href="#">Contacto</a>
+</nav>
 
 <div class="container">
-  <h2 style="font-size: 1.8em; margin: 1400px 0 25px 0; font-weight: 700; border-left: 5px solid #000; padding-left: 15px;">Galería</h2>
-
-  <div class="post-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px;">
-    {% for post in site.posts %}
-      <article style="background: white; border: 1px solid #eee; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-        <div style="width: 100%; height: 250px; overflow: hidden; background: #000; display: flex; align-items: center; justify-content: center;">
-          {% if post.thumbnail %}
-            <img src="{{ site.baseurl }}/assets/img/{{ post.thumbnail | uri_escape }}" class="zoom-img" style="width: 100%; height: 100%; object-fit: cover; cursor: zoom-in;" alt="{{ post.title }}">
-          {% else %}
-            <div style="color: #fff; text-align: center; padding: 20px;">
-              <span style="font-size: 2em;">📸</span><br>
-              <small>Falta miniatura en el post</small>
-            </div>
-          {% endif %}
-        </div>
-        <a href="{{ post.url | relative_url }}" style="text-decoration: none; color: inherit;">
-          <div style="padding: 15px;">
-            <h3 style="margin: 0; font-size: 1.2em; font-weight: 700;">{{ post.title }}</h3>
-            <p style="color: #888; font-size: 0.8em; margin-top: 5px;">{{ post.date | date: "%d/%m/%Y" }}</p>
+  {% for post in site.posts %}
+    <div class="post-entry">
+      <div class="post-content-preview">
+        <h2>{{ post.title }}</h2>
+        <p>{{ post.content | strip_html | truncatewords: 50 }}</p>
+        <a href="{{ post.url | relative_url }}" style="color: #b04b39; font-weight: bold; text-decoration: none;">Leer más →</a>
+      </div>
+      
+      <div class="post-image-preview">
+        {% if post.thumbnail %}
+          <img src="{{ site.baseurl }}/assets/img/{{ post.thumbnail | uri_escape }}" alt="{{ post.title }}">
+        {% else %}
+          <div style="background: #f4f4f4; height: 250px; display: flex; align-items: center; justify-content: center; color: #999; border: 1px solid #ddd;">
+            📸 Sin imagen
           </div>
-        </a>
-      </article>
-    {% endfor %}
-  </div>
+        {% endif %}
+      </div>
+    </div>
+  {% endfor %}
 </div>
-
-<script src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js"></script>
-<script>
-  mediumZoom('.zoom-img', { margin: 24, background: '#fff' });
-</script>
