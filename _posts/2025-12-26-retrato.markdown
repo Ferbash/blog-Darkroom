@@ -6,4 +6,7 @@ categories: Analogico
 thumbnail: "0382 - AA018.jpg"
 ---
 
+
+<img src="{{ site.baseurl }}/assets/img/{{ page.thumbnail | uri_escape }}" alt="Retrato" style="max-width: 100%; border: 1px solid #ddd; margin-bottom: 18px;" />
+
 Ektar 100 - OM10
