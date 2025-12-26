@@ -28,28 +28,27 @@ layout: home
 				</p>
 			</header>
 
+
 			<div class="container">
 				<h2 style="font-size: 1.8em; margin-bottom: 25px; font-weight: 700;">Posts</h2>
 
-				<div class="post-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px;">
+				<div class="post-list-vertical" style="display: flex; flex-direction: column; gap: 50px; max-width: 800px; margin: 0 auto;">
 					{% assign sorted_posts = site.posts | sort: 'date' | reverse %}
 					{% for post in sorted_posts %}
-						<article style="border: 1px solid #eee; border-radius: 0; overflow: hidden; transition: all 0.3s ease;">
-							<a href="{{ site.baseurl }}/assets/imagenes/{{ post.thumbnail }}" class="zoom-thumb" style="display:block;">
-								<div style="width: 100%; height: 250px; overflow: hidden; background: #000;">
-									{% if post.thumbnail %}
-										<img src="{{ site.baseurl }}/assets/imagenes/{{ post.thumbnail }}" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.9; transition: opacity 0.3s;">
-									{% else %}
-										<div style="height: 100%; display: flex; align-items: center; justify-content: center; color: white;">📸</div>
-									{% endif %}
-								</div>
-							</a>
-							<div style="padding: 15px 5px;">
+						<article style="border: 1px solid #eee; border-radius: 10px; overflow: hidden; transition: all 0.3s ease; background: #fff; box-shadow: 0 2px 12px #0001;">
+							{% if post.thumbnail %}
+								<a href="{{ site.baseurl }}/assets/imagenes/{{ post.thumbnail }}" class="zoom-thumb" style="display:block;">
+									<img src="{{ site.baseurl }}/assets/imagenes/{{ post.thumbnail }}" style="width: 100%; max-height: 480px; object-fit: cover; display: block;">
+								</a>
+							{% else %}
+								<div style="width: 100%; height: 350px; background: #f0f0f0; display: flex; align-items: center; justify-content: center; color: #bbb; font-size: 4em;">📸</div>
+							{% endif %}
+							<div style="padding: 25px 20px 15px 20px;">
 								<a href="{{ post.url | relative_url }}" style="text-decoration: none; color: inherit;">
-									<h3 style="margin: 0; font-size: 1.2em; font-weight: 700; line-height: 1.2;">
+									<h3 style="margin: 0 0 10px 0; font-size: 2em; font-weight: 800; line-height: 1.1; letter-spacing: -1px; text-shadow: 1px 1px 8px #eee;">
 										{{ post.title }}
 									</h3>
-									<p style="margin: 8px 0 0; color: #888; font-size: 0.85em; text-transform: uppercase; letter-spacing: 1px;">
+									<p style="margin: 0 0 0 2px; color: #888; font-size: 1em; text-transform: uppercase; letter-spacing: 1px;">
 										{{ post.date | date: "%d · %m · %Y" }}
 									</p>
 								</a>
