@@ -11,9 +11,15 @@ IMAGES_DIR = os.path.join(os.getcwd(), 'assets', 'imagenes')
 DATE_FORMAT = '%Y-%m-%d'
 
  
-def crear_post(titulo, nombre_imagen, descripcion, categorias='fotografia'):
-    hoy = datetime.datetime.now().strftime(DATE_FORMAT)
-    nombre_archivo = f"{hoy}-{titulo.lower().replace(' ', '-')}.markdown"
+def crear_post(titulo, nombre_imagen, descripcion, categorias='fotografia', fecha_programada=None, hora_programada=None):
+    if fecha_programada and hora_programada:
+        fecha_post = fecha_programada
+        hora_post = hora_programada
+    else:
+        fecha_post = datetime.datetime.now().strftime(DATE_FORMAT)
+        hora_post = "12:00:00"
+    
+    nombre_archivo = f"{fecha_post}-{titulo.lower().replace(' ', '-')}.markdown"
     ruta_post = os.path.join(POSTS_DIR, nombre_archivo)
     ruta_imagen = os.path.join(IMAGES_DIR, nombre_imagen)
 
@@ -21,7 +27,7 @@ def crear_post(titulo, nombre_imagen, descripcion, categorias='fotografia'):
     front_matter = f"""---
 layout: post
 title: "{titulo}"
-date: {hoy} 12:00:00 -0300
+date: {fecha_post} {hora_post} -0300
 categories: {categorias}
 thumbnail: "{nombre_imagen}"
 ---
@@ -65,13 +71,41 @@ if __name__ == "__main__":
     ruta_imagen_origen = ruta_imagen_origen.strip('"').strip("'")
     descripcion = input("3. Escribe una breve descripción para el post: ").strip()
     categoria = input("4. Escribe la categoría (o presiona Enter para 'fotografia'): ").strip() or 'fotografia'
+    
+    # Programar fecha y hora
+    programar = input("5. ¿Quieres programar la publicación para otra fecha? (s/n, Enter=no): ").strip().lower()
+    fecha_programada = None
+    hora_programada = None
+    
+    if programar == 's':
+        while True:
+            fecha_input = input("   Ingresa la fecha (DD/MM/YYYY): ").strip()
+            try:
+                fecha_obj = datetime.datetime.strptime(fecha_input, "%d/%m/%Y")
+                fecha_programada = fecha_obj.strftime(DATE_FORMAT)
+                break
+            except ValueError:
+                print("   Formato de fecha incorrecto. Intenta de nuevo.")
+        
+        while True:
+            hora_input = input("   Ingresa la hora (HH:MM, formato 24h): ").strip()
+            try:
+                hora_obj = datetime.datetime.strptime(hora_input, "%H:%M")
+                hora_programada = hora_obj.strftime("%H:%M:00")
+                break
+            except ValueError:
+                print("   Formato de hora incorrecto. Intenta de nuevo.")
+        
+        print(f"\n   Post programado para: {fecha_input} a las {hora_input}")
+    else:
+        print("\n   Publicando con fecha y hora actual.")
 
     print("\nCopiando imagen...")
     nombre_imagen = os.path.basename(ruta_imagen_origen)
     agregar_imagen(ruta_imagen_origen, nombre_imagen)
 
     print("\nCreando post...")
-    crear_post(titulo, nombre_imagen, descripcion, categoria)
+    crear_post(titulo, nombre_imagen, descripcion, categoria, fecha_programada, hora_programada)
 
     print("\nSubiendo cambios a GitHub...")
     git_push(f"Nuevo post: {titulo}")

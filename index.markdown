@@ -3,9 +3,17 @@ layout: default
 ---
 
 <style>
-  /* 1. OCULTA LA BARRA SUPERIOR (LO QUE MARCASTE EN AMARILLO) */
+  /* 1. REDUCE EL TÍTULO SUPERIOR A SUBTÍTULO */
   .site-header {
-    display: none !important;
+    border-bottom: 1px solid #e8e8e8;
+    padding: 5px 0;
+  }
+  
+  .site-header .site-title {
+    font-size: 0.9em !important;
+    font-weight: 400 !important;
+    color: #666 !important;
+    letter-spacing: 0.5px;
   }
 
   /* 2. ESTILO PROFESIONAL DAVE MORROW */
@@ -62,6 +70,66 @@ layout: default
     padding: 6px;
     background: #fff;
     box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  }
+  
+  /* 4. RESPONSIVE PARA MÓVILES */
+  @media screen and (max-width: 768px) {
+    .site-title-custom {
+      font-size: 2.5em;
+      margin-top: 30px;
+    }
+    
+    .nav-menu-custom {
+      font-size: 0.7em;
+      padding: 10px 0;
+      margin: 15px auto 30px auto;
+    }
+    
+    .nav-menu-custom a {
+      margin: 0 8px;
+      display: inline-block;
+    }
+    
+    .post-entry {
+      flex-direction: column;
+      gap: 20px;
+      margin-bottom: 50px;
+      padding: 0 15px;
+    }
+    
+    .post-content-preview h2 {
+      font-size: 1.8em !important;
+    }
+    
+    .post-content-preview,
+    .post-image-preview {
+      min-width: 100%;
+      width: 100%;
+    }
+    
+    .post-image-preview img {
+      padding: 4px;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .site-title-custom {
+      font-size: 2em;
+      margin-top: 20px;
+    }
+    
+    .nav-menu-custom {
+      font-size: 0.65em;
+      letter-spacing: 1px;
+    }
+    
+    .nav-menu-custom a {
+      margin: 0 5px;
+    }
+    
+    .post-content-preview h2 {
+      font-size: 1.5em !important;
+    }
   }
 </style>
 
