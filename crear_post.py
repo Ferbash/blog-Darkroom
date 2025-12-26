@@ -11,11 +11,15 @@ IMAGES_DIR = os.path.join(os.getcwd(), 'assets', 'imagenes')
 DATE_FORMAT = '%Y-%m-%d'
 
 
+date: {hoy} 12:00:00 -0300
 def crear_post(titulo, nombre_imagen, descripcion, categorias='fotografia'):
     hoy = datetime.datetime.now().strftime(DATE_FORMAT)
     nombre_archivo = f"{hoy}-{titulo.lower().replace(' ', '-')}.markdown"
     ruta_post = os.path.join(POSTS_DIR, nombre_archivo)
     ruta_imagen = os.path.join(IMAGES_DIR, nombre_imagen)
+
+    # Usar la sintaxis correcta de Jekyll para la imagen
+    imagen_md = f"![{titulo}]({{ '{{' }} site.baseurl {{ '}}' }}/assets/imagenes/{nombre_imagen})"
 
     front_matter = f"""---
 layout: post
@@ -24,7 +28,7 @@ date: {hoy} 12:00:00 -0300
 categories: {categorias}
 ---
 
-![{titulo}]({{ '{{ site.baseurl }}' }}/assets/imagenes/{nombre_imagen})
+{imagen_md}
 
 {descripcion}
 """
