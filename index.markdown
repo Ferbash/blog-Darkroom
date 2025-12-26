@@ -12,7 +12,7 @@ layout: default
 </header>
 
 <div class="container">
-  <h2 style="font-size: 1.8em; margin: 40px 0 25px 0; font-weight: 700; border-left: 5px solid #000; padding-left: 15px;">Galería</h2>
+  <h2 style="font-size: 1.8em; margin: 1400px 0 25px 0; font-weight: 700; border-left: 5px solid #000; padding-left: 15px;">Galería</h2>
 
   <div class="post-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px;">
     {% for post in site.posts %}
