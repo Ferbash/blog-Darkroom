@@ -3,6 +3,7 @@ layout: post
 title: "Estación Tres Arroyos"
 date: 2025-12-26 11:41:43 -0300
 categories: fotografia
+thumbnail: "0382 - AA016.jpg"
 ---
 
 
