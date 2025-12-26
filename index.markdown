@@ -35,9 +35,4 @@ layout: default
     {% endfor %}
   </div>
 </div>
-</div>
 
-<script src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js"></script>
-<script>
-  mediumZoom('.zoom-img', { margin: 24, background: '#fff' });
-</script>
