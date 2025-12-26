@@ -5,9 +5,9 @@ date: 2025-12-26 11:41:43 -0300
 categories: fotografia
 ---
 
-<a href="/assets/imagenes/0382 - AA016.jpg" class="zoom">
-	<img src="/assets/imagenes/0382 - AA016.jpg" alt="Estación Tres Arroyos">
 </a>
+
+![Estación Tres Arroyos]({{ site.baseurl }}/assets/imagenes/0382 - AA016.jpg)
 
 Ektar 100 - Om 10
 
