@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title | default: site.title }}</title>
+  <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
+  {%- if site.google_analytics -%}
+    <!-- Google Analytics -->
+    {{ site.google_analytics | strip_newlines }}
+  {%- endif -%}
+</head>
+<body>
+  <header>
+    <nav style="max-width: 1200px; margin: 0 auto; padding: 20px 0 0 0; display: flex; justify-content: space-between; align-items: center;">
+      <a href="{{ site.baseurl }}/" style="font-size: 2em; font-weight: bold; color: #222; text-decoration: none;">{{ site.title }}</a>
+      <a href="{{ site.baseurl }}/about/" style="font-size: 1em; color: #222; text-decoration: none;">About</a>
+    </nav>
+  </header>
+  <main style="max-width: 1200px; margin: 0 auto; padding: 0 20px; min-height: 70vh;">
+    {{ content }}
+  </main>
+  <footer style="text-align: center; color: #888; font-size: 0.9em; padding: 30px 0 10px 0;">
+    &copy; {{ site.time | date: '%Y' }} {{ site.title }}
+  </footer>
+
+  <!-- Medium Zoom para imágenes -->
+  <script src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js"></script>
+  <script>
+    mediumZoom('img', {
+      margin: 24,
+      background: '#ffffff',
+      scrollOffset: 0,
+    })
+  </script>
+  <style>
+    .medium-zoom-overlay { z-index: 100; }
+    .medium-zoom-image--opened { z-index: 101; }
+  </style>
+</body>
+</html>
