@@ -3,10 +3,10 @@ layout: post
 title: "Retrato"
 date: 2025-12-26 12:00:00 -0300
 categories: Analogico
-thumbnail: "0382 - AA018.jpg"
+thumbnail: "0382-AA016.jpg"
 ---
 
 
-<img src="{{ site.baseurl }}/assets/img/{{ page.thumbnail | uri_escape }}" alt="Retrato" style="max-width: 100%; border: 1px solid #ddd; margin-bottom: 18px;" />
+<img src="{{ site.baseurl }}/assets/imagenes/{{ page.thumbnail | uri_escape }}" alt="Retrato" style="max-width: 100%; border: 1px solid #ddd; margin-bottom: 18px;" />
 
 Ektar 100 - OM10
