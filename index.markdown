@@ -89,7 +89,7 @@ layout: default
       
       <div class="post-image-preview">
         {% if post.thumbnail %}
-          <img src="{{ site.baseurl }}/assets/img/{{ post.thumbnail | uri_escape }}" alt="{{ post.title }}">
+          <img src="{{ site.baseurl }}/assets/imagenes/{{ post.thumbnail | uri_escape }}" alt="{{ post.title }}">
         {% endif %}
       </div>
     </div>
