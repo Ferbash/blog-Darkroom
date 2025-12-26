@@ -10,10 +10,10 @@ layout: default
   }
   
   .site-header .site-title {
-    font-size: 0.9em !important;
-    font-weight: 400 !important;
-    color: #666 !important;
-    letter-spacing: 0.5px;
+    font-size: 0.65em !important;
+    font-weight: 300 !important;
+    color: #999 !important;
+    letter-spacing: 0.3px;
   }
 
   /* 2. ESTILO PROFESIONAL DAVE MORROW */
