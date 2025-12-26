@@ -26,6 +26,8 @@ categories: {categorias}
 thumbnail: "{nombre_imagen}"
 ---
 
+<img src="{{{{ site.baseurl }}}}/assets/imagenes/{{{{ page.thumbnail | uri_escape }}}}" alt="{titulo}" style="max-width: 100%; border: 1px solid #ddd; margin-bottom: 18px;" />
+
 {descripcion}
 """
     with open(ruta_post, 'w', encoding='utf-8') as f:

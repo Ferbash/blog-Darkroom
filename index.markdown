@@ -74,7 +74,7 @@ layout: default
   <a href="{{ site.baseurl }}/">INICIO</a>
   <a href="{{ site.baseurl }}/about">SOBRE MÍ</a>
   <a href="#">GALERÍA</a>
-  <a href="#">CONTACTO</a>
+  <a href="{{ site.baseurl }}/contact">CONTACTO</a>
 </nav>
 
 <div class="container">
