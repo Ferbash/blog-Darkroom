@@ -2,6 +2,9 @@
 layout: default
 ---
 
+<div style="text-align:center; margin-bottom:10px;">
+  <img src="{{ site.baseurl }}/logo/logo.png" alt="Logo" style="max-width:180px; max-height:120px; display:block; margin:0 auto 10px auto; border-radius:12px; box-shadow:0 2px 8px #0002;">
+</div>
 <header style="text-align: center; padding: 40px 0; border-bottom: 2px solid #111; margin-bottom: 40px;">
   <h1 style="font-size: 3.5em; font-weight: 900; letter-spacing: -2px; margin: 0; text-transform: uppercase;">
     Darkroom
