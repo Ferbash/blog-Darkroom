@@ -1,6 +1,9 @@
 ---
 layout: default
 ---
+---
+layout: default
+---
 
 <header style="text-align: center; padding: 40px 0; border-bottom: 2px solid #111; margin-bottom: 40px;">
   <h1 style="font-size: 3.5em; font-weight: 900; letter-spacing: -2px; margin: 0; text-transform: uppercase;">
@@ -12,7 +15,7 @@ layout: default
 </header>
 
 <div class="container">
-  <h2 style="font-size: 1.8em; margin-bottom: 25px; font-weight: 700;">Galería</h2>
+  <h2 style="font-size: 1.8em; margin: 40px 0 25px 0; font-weight: 700; border-left: 5px solid #000; padding-left: 15px;">Galería</h2>
 
   <div class="post-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px;">
     {% for post in site.posts %}
@@ -20,7 +23,7 @@ layout: default
         <a href="{{ post.url | relative_url }}" style="text-decoration: none; color: inherit;">
           <div style="width: 100%; height: 250px; overflow: hidden; background: #000;">
             {% if post.thumbnail %}
-              <img src="{{ site.baseurl }}/assets/img/{{ post.thumbnail }}" class="zoom-img" style="width: 100%; height: 100%; object-fit: cover; cursor: zoom-in;">
+              <img src="{{ site.baseurl }}/assets/imagenes/{{ post.thumbnail }}" style="width: 100%; height: 100%; object-fit: cover; display: block;" alt="{{ post.title }}">
             {% else %}
               <div style="height: 100%; display: flex; align-items: center; justify-content: center; color: white;">📸 Sin miniatura</div>
             {% endif %}
@@ -33,6 +36,7 @@ layout: default
       </article>
     {% endfor %}
   </div>
+</div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js"></script>
