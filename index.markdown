@@ -1,6 +1,5 @@
 ---
 layout: default
-
 ---
 
 <header style="text-align: center; padding: 40px 0; border-bottom: 2px solid #111; margin-bottom: 40px;">
@@ -18,14 +17,17 @@ layout: default
   <div class="post-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px;">
     {% for post in site.posts %}
       <article style="background: white; border: 1px solid #eee; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+        <div style="width: 100%; height: 250px; overflow: hidden; background: #000; display: flex; align-items: center; justify-content: center;">
+          {% if post.thumbnail %}
+            <img src="{{ site.baseurl }}/assets/img/{{ post.thumbnail | uri_escape }}" class="zoom-img" style="width: 100%; height: 100%; object-fit: cover; cursor: zoom-in;" alt="{{ post.title }}">
+          {% else %}
+            <div style="color: #fff; text-align: center; padding: 20px;">
+              <span style="font-size: 2em;">📸</span><br>
+              <small>Falta miniatura en el post</small>
+            </div>
+          {% endif %}
+        </div>
         <a href="{{ post.url | relative_url }}" style="text-decoration: none; color: inherit;">
-          <div style="width: 100%; height: 250px; overflow: hidden; background: #000;">
-            {% if post.thumbnail %}
-              <img src="{{ site.baseurl }}/assets/imagenes/{{ post.thumbnail | uri_escape }}" style="width: 100%; height: 100%; object-fit: cover; display: block;" alt="{{ post.title }}">
-            {% else %}
-              <span style="color: #fff; font-size: 2.5em;">📸 Sin miniatura<br><span style='font-size:1em;'>Verifica el nombre en el front matter y en assets/imagenes</span></span>
-            {% endif %}
-          </div>
           <div style="padding: 15px;">
             <h3 style="margin: 0; font-size: 1.2em; font-weight: 700;">{{ post.title }}</h3>
             <p style="color: #888; font-size: 0.8em; margin-top: 5px;">{{ post.date | date: "%d/%m/%Y" }}</p>
@@ -36,3 +38,7 @@ layout: default
   </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js"></script>
+<script>
+  mediumZoom('.zoom-img', { margin: 24, background: '#fff' });
+</script>
