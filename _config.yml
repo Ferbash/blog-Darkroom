@@ -1,0 +1,82 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+#
+# If you need help with YAML syntax, here are some quick references for you:
+# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
+# https://learnxinyminutes.com/docs/yaml/
+#
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+
+
+title: "Darkroom: Un paseo por fotografia quimica"
+email: reikitsas@gmail.com
+description: >-
+  Acompáñame en mi recorrido día a día con mi cámara analógica, capturando momentos únicos y revelando cada imagen en el cuarto oscuro. Un espacio visual para compartir la pasión por la fotografía química y la belleza de lo simple.
+baseurl: "" # el subpath de tu sitio, por ejemplo /blog
+url: "" # el hostname base y protocolo, por ejemplo http://ejemplo.com
+twitter_username: 
+github_username:  
+
+# Build settings
+
+# Tema minimalista y limpio
+theme: minima
+
+# Plugins recomendados
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Configuración de minima para enfoque visual
+minima:
+  skin: classic
+  social_links:
+    - { platform: instagram, user_url: "https://instagram.com/tuusuario" }
+  date_format: "%d %b %Y"
+  show_excerpts: false
+
+# Configuración personalizada para galería de imágenes
+collections:
+  photos:
+    output: true
+    permalink: /fotos/:path/
+
+# Paginación (opcional)
+paginate: 9
+paginate_path: "/pagina/:num/"
+
+# Variables personalizadas
+hero_image: "/assets/main.jpg"
+gallery_title: "Galería de Imágenes"
+gallery_description: "Explora mis mejores capturas en esta galería minimalista."
+
+# Exclude from processing.
+# The following items will not be processed, by default.
+# Any item listed under the `exclude:` key here will be automatically added to
+# the internal "default list".
+#
+# Excluded items can be processed by explicitly listing the directories or
+# their entries' file path in the `include:` list.
+#
+# exclude:
+#   - .sass-cache/
+#   - .jekyll-cache/
+#   - gemfiles/
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules/
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/
