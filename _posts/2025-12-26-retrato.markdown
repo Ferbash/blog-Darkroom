@@ -1,0 +1,10 @@
+---
+layout: post
+title: "Retrato"
+date: 2025-12-26 12:00:00 -0300
+categories: Analogica
+---
+
+![Retrato]({ '{ site.baseurl }' }/assets/imagenes/0382 - AA018.jpg)
+
+Ektar100 - Camara Olympus OM10
