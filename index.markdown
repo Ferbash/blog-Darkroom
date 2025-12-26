@@ -25,7 +25,7 @@ layout: default
             {% if post.thumbnail %}
               <img src="{{ site.baseurl }}/assets/imagenes/{{ post.thumbnail }}" style="width: 100%; height: 100%; object-fit: cover; display: block;" alt="{{ post.title }}">
             {% else %}
-              <div style="height: 100%; display: flex; align-items: center; justify-content: center; color: white;">📸 Sin miniatura</div>
+              <span style="color: #fff; font-size: 2.5em;">📸 Sin miniatura<br><span style='font-size:1em;'>Verifica el nombre en el front matter y en assets/imagenes</span></span>
             {% endif %}
           </div>
           <div style="padding: 15px;">
