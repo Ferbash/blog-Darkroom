@@ -3,6 +3,7 @@ layout: post
 title: "Retrato"
 date: 2025-12-26 12:00:00 -0300
 categories: Analogica
+thumbnail: "0382 - AA018.jpg"
 ---
 
 ![Retrato]({{ site.baseurl }}/assets/imagenes/0382 - AA018.jpg)

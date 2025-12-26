@@ -10,8 +10,7 @@ POSTS_DIR = os.path.join(os.getcwd(), '_posts')
 IMAGES_DIR = os.path.join(os.getcwd(), 'assets', 'imagenes')
 DATE_FORMAT = '%Y-%m-%d'
 
-
-date: {hoy} 12:00:00 -0300
+ 
 def crear_post(titulo, nombre_imagen, descripcion, categorias='fotografia'):
     hoy = datetime.datetime.now().strftime(DATE_FORMAT)
     nombre_archivo = f"{hoy}-{titulo.lower().replace(' ', '-')}.markdown"
