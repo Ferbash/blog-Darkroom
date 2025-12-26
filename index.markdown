@@ -21,7 +21,7 @@ layout: default
         <a href="{{ post.url | relative_url }}" style="text-decoration: none; color: inherit;">
           <div style="width: 100%; height: 250px; overflow: hidden; background: #000;">
             {% if post.thumbnail %}
-              <img src="{{ site.baseurl }}/assets/imagenes/{{ post.thumbnail }}" style="width: 100%; height: 100%; object-fit: cover; display: block;" alt="{{ post.title }}">
+              <img src="{{ site.baseurl }}/assets/imagenes/{{ post.thumbnail | uri_escape }}" style="width: 100%; height: 100%; object-fit: cover; display: block;" alt="{{ post.title }}">
             {% else %}
               <span style="color: #fff; font-size: 2.5em;">📸 Sin miniatura<br><span style='font-size:1em;'>Verifica el nombre en el front matter y en assets/imagenes</span></span>
             {% endif %}
