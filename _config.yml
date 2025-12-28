@@ -33,6 +33,9 @@ github_username:
 # Tema minimalista y limpio
 theme: minima
 
+# Permitir publicar posts con fechas futuras
+future: true
+
 # Plugins recomendados
 plugins:
   - jekyll-feed
