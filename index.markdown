@@ -149,7 +149,7 @@ layout: default
 <nav class="nav-menu-custom">
   <a href="{{ site.baseurl }}/">INICIO</a>
   <a href="{{ site.baseurl }}/about">SOBRE MÍ</a>
-  <a href="#">GALERÍA</a>
+  <a href="{{ site.baseurl }}/galeria">GALERÍA</a>
   <a href="{{ site.baseurl }}/contact">CONTACTO</a>
 </nav>
 
