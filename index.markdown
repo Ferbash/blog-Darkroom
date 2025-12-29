@@ -142,7 +142,7 @@ layout: default
 </style>
 
 <h1 class="site-title-custom">Darkroom Photography</h1>
-<div style="text-align: center; color: #666; font-size: 1.1em; margin-bottom: 15px; font-style: italic;">
+<div style="text-align: center; color: #333; font-size: 1.1em; margin-bottom: 15px; font-style: italic; font-family: 'Georgia', serif;">
   Fotografía analógica, revelado químico y recorridos personales.
 </div>
 
