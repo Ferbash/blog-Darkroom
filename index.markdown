@@ -62,7 +62,7 @@ layout: default
   }
 
   .post-content-preview { flex: 1; min-width: 300px; }
-  .post-image-preview { flex: 1; min-width: 300px; }
+  .post-image-preview { flex: 1.4; min-width: 350px; }
 
   .post-image-preview img {
     width: 100%;
@@ -70,6 +70,14 @@ layout: default
     padding: 6px;
     background: #fff;
     box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  }
+  
+  .photo-caption {
+    margin-top: 8px;
+    font-size: 0.85em;
+    color: #888;
+    font-style: italic;
+    text-align: center;
   }
   
   /* 4. RESPONSIVE PARA MÓVILES */
@@ -134,8 +142,8 @@ layout: default
 </style>
 
 <h1 class="site-title-custom">Darkroom Photography</h1>
-<div style="text-align: center; color: #1a3a5a; letter-spacing: 2px; font-size: 0.9em; margin-bottom: 15px;">
-  || FOTOGRAFÍA ANALÓGICA & REVELADO QUÍMICO ||
+<div style="text-align: center; color: #666; font-size: 1.1em; margin-bottom: 15px; font-style: italic;">
+  Fotografía analógica, revelado químico y recorridos personales.
 </div>
 
 <nav class="nav-menu-custom">
@@ -158,6 +166,11 @@ layout: default
       <div class="post-image-preview">
         {% if post.thumbnail %}
           <img src="{{ site.baseurl }}/assets/imagenes/{{ post.thumbnail | uri_escape }}" alt="{{ post.title }}">
+          {% if post.location or post.film or post.camera %}
+            <div class="photo-caption">
+              {% if post.location %}{{ post.location }}{% endif %}{% if post.film %} — {{ post.film }}{% endif %}{% if post.camera %} · {{ post.camera }}{% endif %}
+            </div>
+          {% endif %}
         {% endif %}
       </div>
     </div>
