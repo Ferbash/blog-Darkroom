@@ -4,6 +4,9 @@ title: "Retrato de sal"
 date: 2025-12-26 12:00:00 -0300
 categories: Analogica
 thumbnail: "0382 - AA035.jpg"
+location: "Costa marítima"
+film: "Ektar 100"
+camera: "OM10"
 excerpt: "Retrato junto al mar con la textura característica de Ektar 100. Momento capturado en película analógica."
 image: /assets/imagenes/0382 - AA035.jpg
 ---

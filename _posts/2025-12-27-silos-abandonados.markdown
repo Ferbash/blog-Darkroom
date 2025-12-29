@@ -4,6 +4,9 @@ title: "Silos abandonados"
 date: 2025-12-27 10:00:00 -0300
 categories: Analogico
 thumbnail: "0382 - AA009.jpg"
+location: "Campo argentino"
+film: "Ektar 100"
+camera: "OM10"
 excerpt: "Silos olvidados en el campo argentino. Estructuras abandonadas que cuentan historias silenciosas del pasado rural."
 image: /assets/imagenes/0382 - AA009.jpg
 ---

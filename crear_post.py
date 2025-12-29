@@ -11,7 +11,7 @@ IMAGES_DIR = os.path.join(os.getcwd(), 'assets', 'imagenes')
 DATE_FORMAT = '%Y-%m-%d'
 
  
-def crear_post(titulo, nombre_imagen, descripcion, categorias='fotografia', fecha_programada=None, hora_programada=None):
+def crear_post(titulo, nombre_imagen, descripcion, categorias='fotografia', fecha_programada=None, hora_programada=None, ubicacion='', pelicula='', camara='', excerpt=''):
     if fecha_programada and hora_programada:
         fecha_post = fecha_programada
         hora_post = hora_programada
@@ -23,14 +23,27 @@ def crear_post(titulo, nombre_imagen, descripcion, categorias='fotografia', fech
     ruta_post = os.path.join(POSTS_DIR, nombre_archivo)
     ruta_imagen = os.path.join(IMAGES_DIR, nombre_imagen)
 
-    # Solo miniatura y campos requeridos, sin zoom ni scripts
+    # Front matter con todos los campos para SEO y pie de foto
     front_matter = f"""---
 layout: post
 title: "{titulo}"
 date: {fecha_post} {hora_post} -0300
 categories: {categorias}
-thumbnail: "{nombre_imagen}"
----
+thumbnail: "{nombre_imagen}"""
+    
+    # Agregar campos opcionales solo si tienen valor
+    if ubicacion:
+        front_matter += f"\nlocation: \"{ubicacion}\""
+    if pelicula:
+        front_matter += f"\nfilm: \"{pelicula}\""
+    if camara:
+        front_matter += f"\ncamera: \"{camara}\""
+    if excerpt:
+        front_matter += f"\nexcerpt: \"{excerpt}\""
+    
+    # Agregar image para redes sociales
+    front_matter += f"\nimage: /assets/imagenes/{nombre_imagen}"
+    front_matter += f"""\n---
 
 <img src="{{{{ site.baseurl }}}}/assets/imagenes/{{{{ page.thumbnail | uri_escape }}}}" alt="{titulo}" style="max-width: 100%; border: 1px solid #ddd; margin-bottom: 18px;" />
 
@@ -72,8 +85,15 @@ if __name__ == "__main__":
     descripcion = input("3. Escribe una breve descripción para el post: ").strip()
     categoria = input("4. Escribe la categoría (o presiona Enter para 'fotografia'): ").strip() or 'fotografia'
     
+    # Campos para pie de foto y SEO
+    print("\n--- Información adicional (opcional, presiona Enter para omitir) ---")
+    ubicacion = input("   Ubicación (ej: Tres Arroyos): ").strip()
+    pelicula = input("   Película utilizada (ej: Ektar 100): ").strip()
+    camara = input("   Cámara (ej: OM10): ").strip()
+    excerpt = input("   Descripción para SEO/redes (40-60 palabras): ").strip()
+    
     # Programar fecha y hora
-    programar = input("5. ¿Quieres programar la publicación para otra fecha? (s/n, Enter=no): ").strip().lower()
+    programar = input("\n5. ¿Quieres programar la publicación para otra fecha? (s/n, Enter=no): ").strip().lower()
     fecha_programada = None
     hora_programada = None
     
@@ -105,7 +125,7 @@ if __name__ == "__main__":
     agregar_imagen(ruta_imagen_origen, nombre_imagen)
 
     print("\nCreando post...")
-    crear_post(titulo, nombre_imagen, descripcion, categoria, fecha_programada, hora_programada)
+    crear_post(titulo, nombre_imagen, descripcion, categoria, fecha_programada, hora_programada, ubicacion, pelicula, camara, excerpt)
 
     print("\nSubiendo cambios a GitHub...")
     git_push(f"Nuevo post: {titulo}")

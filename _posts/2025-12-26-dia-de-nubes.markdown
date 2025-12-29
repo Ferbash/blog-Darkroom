@@ -4,6 +4,8 @@ title: "Dia de Nubes"
 date: 2025-12-26 12:00:00 -0300
 categories: Analogico
 thumbnail: "0382 - AA003.jpg"
+film: "Ektar 100"
+camera: "OM10"
 excerpt: "Cielos dramáticos capturados en película Ektar 100. La fotografía analógica revela texturas únicas en las nubes."
 image: /assets/imagenes/0382 - AA003.jpg
 ---
