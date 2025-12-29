@@ -3,7 +3,7 @@ layout: post
 title: "Atardecer"
 date: 2025-12-29 12:00:00 -0300
 categories: Analogica
-thumbnail: "0383 - AA008.jpg
+thumbnail: "0383 - AA008.jpg"
 location: "Tres Arroyos"
 film: "Kodak Vision 3"
 camera: "Minolta Dynax"
