@@ -29,7 +29,8 @@ layout: post
 title: "{titulo}"
 date: {fecha_post} {hora_post} -0300
 categories: {categorias}
-thumbnail: "{nombre_imagen}"""
+thumbnail: "{nombre_imagen}"
+"""
     
     # Agregar campos opcionales solo si tienen valor
     if ubicacion:

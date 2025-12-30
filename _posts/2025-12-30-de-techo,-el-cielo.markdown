@@ -3,7 +3,7 @@ layout: post
 title: "De techo, el cielo"
 date: 2025-12-30 12:00:00 -0300
 categories: Analogico
-thumbnail: "0382 - AA028.jpg
+thumbnail: "0382 - AA028.jpg"
 location: "Tres Arroyos"
 film: "Ektar 100"
 camera: "Olympus OM10"
