@@ -1,0 +1,17 @@
+---
+layout: post
+title: "Primer foto 2026"
+date: 2026-01-01 12:00:00 -0300
+categories: Analogico
+thumbnail: "0382 - AA019.jpg"
+
+location: "Tres Arroyos"
+film: "Ektar 100"
+camera: "Camara OM10"
+excerpt: "Fotografía de arte callejero en una pared de cemento blanca con un graffiti de Hello Kitty, la palabra OLITA y estrellas doradas. Estilo de fotografía analógica vintage con texturas urbanas."
+image: /assets/imagenes/0382 - AA019.jpg
+---
+
+<img src="{{ site.baseurl }}/assets/imagenes/{{ page.thumbnail | uri_escape }}" alt="Primer foto 2026" style="max-width: 100%; border: 1px solid #ddd; margin-bottom: 18px;" />
+
+A veces el mensaje mas simple es el que mas brilla
