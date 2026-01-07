@@ -1,0 +1,17 @@
+---
+layout: post
+title: "Grafitti"
+date: 2026-01-07 12:00:00 -0300
+categories: Analogico
+thumbnail: "0382 - AA036.jpg"
+
+location: "Tres Arroyos"
+film: "Ektar 100"
+camera: "OM10"
+excerpt: "Grafittis de la ciudad, arte callejero de Tres Arroyos"
+image: /assets/imagenes/0382 - AA036.jpg
+---
+
+<img src="{{ site.baseurl }}/assets/imagenes/{{ page.thumbnail | uri_escape }}" alt="Grafitti" style="max-width: 100%; border: 1px solid #ddd; margin-bottom: 18px;" />
+
+Recorriendo las calles de mi ciudad, encontrando ese arte escondido.
