@@ -1,0 +1,17 @@
+---
+layout: post
+title: "Pasillo"
+date: 2026-01-11 12:00:00 -0300
+categories: Analogica
+thumbnail: "0382 - AA032.jpg"
+
+location: "Tres Arroyos"
+film: "Ektar 100"
+camera: "OM10"
+excerpt: "Un pasillo de sombras de mi ciudad"
+image: /assets/imagenes/0382 - AA032.jpg
+---
+
+<img src="{{ site.baseurl }}/assets/imagenes/{{ page.thumbnail | uri_escape }}" alt="Pasillo" style="max-width: 100%; border: 1px solid #ddd; margin-bottom: 18px;" />
+
+Sombras que perduran
