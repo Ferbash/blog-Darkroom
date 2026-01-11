@@ -8,7 +8,7 @@ location: "Campo argentino"
 film: "Ektar 100"
 camera: "OM10"
 excerpt: "Silos olvidados en el campo argentino. Estructuras abandonadas que cuentan historias silenciosas del pasado rural."
-image: /assets/imagenes/0382 - AA009.jpg
+image: /blog-Darkroom/assets/imagenes/0382 - AA009.jpg
 ---
 
 <img src="{{ site.baseurl }}/assets/imagenes/{{ page.thumbnail | uri_escape }}" alt="Silos abandonados" style="max-width: 100%; border: 1px solid #ddd; margin-bottom: 18px;" />

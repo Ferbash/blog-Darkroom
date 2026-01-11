@@ -7,7 +7,7 @@ thumbnail: "0382-AA018.jpg"
 film: "Ektar 100"
 camera: "OM10"
 excerpt: "Retrato analógico en Ektar 100. La calidez del film químico capturando expresiones genuinas."
-image: /assets/imagenes/0382-AA018.jpg
+image: /blog-Darkroom/assets/imagenes/0382-AA018.jpg
 ---
 
 

@@ -9,7 +9,7 @@ location: "Tres Arroyos"
 film: "Ektar 100"
 camera: "OM10"
 excerpt: "Grafittis de la ciudad, arte callejero de Tres Arroyos"
-image: /assets/imagenes/0382 - AA036.jpg
+image: /blog-Darkroom/assets/imagenes/0382 - AA036.jpg
 ---
 
 <img src="{{ site.baseurl }}/assets/imagenes/{{ page.thumbnail | uri_escape }}" alt="Grafitti" style="max-width: 100%; border: 1px solid #ddd; margin-bottom: 18px;" />

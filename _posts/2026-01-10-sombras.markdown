@@ -9,7 +9,7 @@ location: "Tres Arroyos"
 film: "Ektar 100"
 camera: "OM10"
 excerpt: "Las sombras de una enredadera, fotografia analogica en ektar 100"
-image: /assets/imagenes/0382 - AA003.jpg
+image: /blog-Darkroom/assets/imagenes/0382 - AA003.jpg
 ---
 
 <img src="{{ site.baseurl }}/assets/imagenes/{{ page.thumbnail | uri_escape }}" alt="Sombras" style="max-width: 100%; border: 1px solid #ddd; margin-bottom: 18px;" />
