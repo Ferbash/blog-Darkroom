@@ -1,0 +1,16 @@
+---
+layout: post
+title: "Silos"
+date: 2026-02-05 12:00:00 -0300
+categories: Analogica
+thumbnail: "0382 - AA017.jpg"
+
+location: "Tres Arroyos"
+film: "Ektar 100"
+camera: "Om10"
+image: /assets/imagenes/0382 - AA017.jpg
+---
+
+<img src="{{ site.baseurl }}/assets/imagenes/{{ page.thumbnail | uri_escape }}" alt="Silos" style="max-width: 100%; border: 1px solid #ddd; margin-bottom: 18px;" />
+
+Una vista de un dia de sol
