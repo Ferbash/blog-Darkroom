@@ -25,7 +25,7 @@ def crear_post(titulo, nombre_imagen, descripcion, categorias='fotografia', fech
 
     # Front matter con todos los campos para SEO y pie de foto
     front_matter = f"""---
-layout: post
+layout: default
 title: "{titulo}"
 date: {fecha_post} {hora_post} -0300
 categories: {categorias}

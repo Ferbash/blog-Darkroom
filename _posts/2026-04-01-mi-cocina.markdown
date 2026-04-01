@@ -1,0 +1,17 @@
+---
+layout: default
+title: "Mi cocina"
+date: 2026-04-01 12:00:00 -0300
+categories: analogica
+thumbnail: "0382 - AA001.jpg"
+
+location: "Tres Arroyos"
+film: "Ektar 100"
+camera: "OM10"
+excerpt: "Exploración de la estética analógica en interiores. Imagen capturada en película con un error de revelado natural (light leak) que crea una atmósfera nostálgica y artística."
+image: /assets/imagenes/0382 - AA001.jpg
+---
+
+<img src="{{ site.baseurl }}/assets/imagenes/{{ page.thumbnail | uri_escape }}" alt="Mi cocina" style="max-width: 100%; border: 1px solid #ddd; margin-bottom: 18px;" />
+
+Un dia cualquiera.
