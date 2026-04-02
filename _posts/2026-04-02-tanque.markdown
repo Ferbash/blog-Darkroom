@@ -1,0 +1,16 @@
+---
+layout: default
+title: "Tanque"
+date: 2026-04-02 12:00:00 -0300
+categories: Analogica
+thumbnail: "0382 - AA030.jpg"
+
+location: "Tres Arroyos"
+film: "Ektar 100"
+camera: "OM10"
+image: /assets/imagenes/0382 - AA030.jpg
+---
+
+<img src="{{ site.baseurl }}/assets/imagenes/{{ page.thumbnail | uri_escape }}" alt="Tanque" style="max-width: 100%; border: 1px solid #ddd; margin-bottom: 18px;" />
+
+Escenas de ferrocarril
