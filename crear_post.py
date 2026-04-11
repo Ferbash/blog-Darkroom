@@ -5,33 +5,50 @@ import sys
 import datetime
 import subprocess
 
+
 # Configuración
-POSTS_DIR = os.path.join(os.getcwd(), '_posts')
-IMAGES_DIR = os.path.join(os.getcwd(), 'assets', 'imagenes')
+POSTS_DIR_ANALOG = os.path.join(os.getcwd(), '_posts')
+POSTS_DIR_DIGITAL = os.path.join(os.getcwd(), '_posts_digital')
+IMAGES_DIR_ANALOG = os.path.join(os.getcwd(), 'assets', 'imagenes')
+IMAGES_DIR_DIGITAL = os.path.join(os.getcwd(), 'assets', 'imagenes', 'digitales')
 DATE_FORMAT = '%Y-%m-%d'
 
- 
-def crear_post(titulo, nombre_imagen, descripcion, categorias='fotografia', fecha_programada=None, hora_programada=None, ubicacion='', pelicula='', camara='', excerpt=''):
+
+
+def crear_post(titulo, nombre_imagen, descripcion, tipo_post='analogico', categorias='fotografia', fecha_programada=None, hora_programada=None, ubicacion='', pelicula='', camara='', excerpt=''):
+    if tipo_post == 'digital':
+        posts_dir = POSTS_DIR_DIGITAL
+        images_dir = IMAGES_DIR_DIGITAL
+        categoria_final = 'digital'
+        image_path = f"/assets/imagenes/digitales/{nombre_imagen}"
+    else:
+        posts_dir = POSTS_DIR_ANALOG
+        images_dir = IMAGES_DIR_ANALOG
+        categoria_final = 'analogica'
+        image_path = f"/assets/imagenes/{nombre_imagen}"
+
     if fecha_programada and hora_programada:
         fecha_post = fecha_programada
         hora_post = hora_programada
     else:
         fecha_post = datetime.datetime.now().strftime(DATE_FORMAT)
         hora_post = "12:00:00"
-    
+
     nombre_archivo = f"{fecha_post}-{titulo.lower().replace(' ', '-')}.markdown"
-    ruta_post = os.path.join(POSTS_DIR, nombre_archivo)
-    ruta_imagen = os.path.join(IMAGES_DIR, nombre_imagen)
+    ruta_post = os.path.join(posts_dir, nombre_archivo)
+    ruta_imagen = os.path.join(images_dir, nombre_imagen)
 
     # Front matter con todos los campos para SEO y pie de foto
+    tags = input("   Etiquetas (separadas por coma, opcional): ").strip()
+    tags_line = f"\ntags: [{tags}]" if tags else ""
     front_matter = f"""---
-layout: default
-title: "{titulo}"
-date: {fecha_post} {hora_post} -0300
-categories: {categorias}
-thumbnail: "{nombre_imagen}"
-"""
-    
+    layout: default
+    title: "{titulo}"
+    date: {fecha_post} {hora_post} -0300
+    categories: {categoria_final}
+    thumbnail: "{nombre_imagen}"{tags_line}
+    """
+
     # Agregar campos opcionales solo si tienen valor
     if ubicacion:
         front_matter += f"\nlocation: \"{ubicacion}\""
@@ -41,23 +58,29 @@ thumbnail: "{nombre_imagen}"
         front_matter += f"\ncamera: \"{camara}\""
     if excerpt:
         front_matter += f"\nexcerpt: \"{excerpt}\""
-    
+
     # Agregar image para redes sociales
-    front_matter += f"\nimage: /assets/imagenes/{nombre_imagen}"
+    front_matter += f"\nimage: {image_path}"
     front_matter += f"""\n---
 
-<img src="{{{{ site.baseurl }}}}/assets/imagenes/{{{{ page.thumbnail | uri_escape }}}}" alt="{titulo}" style="max-width: 100%; border: 1px solid #ddd; margin-bottom: 18px;" />
+<img src="{{{{ site.baseurl }}}}{image_path}" alt="{titulo}" style="max-width: 100%; border: 1px solid #ddd; margin-bottom: 18px;" />
 
 {descripcion}
 """
+    os.makedirs(posts_dir, exist_ok=True)
     with open(ruta_post, 'w', encoding='utf-8') as f:
         f.write(front_matter)
     print(f"Post creado: {ruta_post}")
     return ruta_post
 
-def agregar_imagen(origen, nombre_destino):
-    destino = os.path.join(IMAGES_DIR, nombre_destino)
-    os.makedirs(IMAGES_DIR, exist_ok=True)
+
+def agregar_imagen(origen, nombre_destino, tipo_post='analogico'):
+    if tipo_post == 'digital':
+        destino_dir = IMAGES_DIR_DIGITAL
+    else:
+        destino_dir = IMAGES_DIR_ANALOG
+    destino = os.path.join(destino_dir, nombre_destino)
+    os.makedirs(destino_dir, exist_ok=True)
     with open(origen, 'rb') as src, open(destino, 'wb') as dst:
         dst.write(src.read())
     print(f"Imagen copiada a: {destino}")
@@ -71,6 +94,12 @@ def git_push(mensaje):
 
 if __name__ == "__main__":
     print("=== Asistente para crear un nuevo post fotográfico ===\n")
+    tipo_post = input("¿El post es analógico o digital? (a/d, Enter=analógico): ").strip().lower()
+    if tipo_post == 'd':
+        tipo_post = 'digital'
+    else:
+        tipo_post = 'analogico'
+
     titulo = input("1. Escribe el título del post: ").strip()
     ruta_imagen_origen = input("2. Escribe la ruta completa de la imagen (ej: C:/Users/Bassi/Pictures/mi-foto.jpg) o presiona Enter para buscar: ").strip()
     if not ruta_imagen_origen:
@@ -84,20 +113,19 @@ if __name__ == "__main__":
     # Limpiar comillas dobles o simples si las hay
     ruta_imagen_origen = ruta_imagen_origen.strip('"').strip("'")
     descripcion = input("3. Escribe una breve descripción para el post: ").strip()
-    categoria = input("4. Escribe la categoría (o presiona Enter para 'fotografia'): ").strip() or 'fotografia'
-    
+
     # Campos para pie de foto y SEO
     print("\n--- Información adicional (opcional, presiona Enter para omitir) ---")
     ubicacion = input("   Ubicación (ej: Tres Arroyos): ").strip()
     pelicula = input("   Película utilizada (ej: Ektar 100): ").strip()
     camara = input("   Cámara (ej: OM10): ").strip()
     excerpt = input("   Descripción para SEO/redes (40-60 palabras): ").strip()
-    
+
     # Programar fecha y hora
-    programar = input("\n5. ¿Quieres programar la publicación para otra fecha? (s/n, Enter=no): ").strip().lower()
+    programar = input("\n¿Quieres programar la publicación para otra fecha? (s/n, Enter=no): ").strip().lower()
     fecha_programada = None
     hora_programada = None
-    
+
     if programar == 's':
         while True:
             fecha_input = input("   Ingresa la fecha (DD/MM/YYYY): ").strip()
@@ -107,7 +135,7 @@ if __name__ == "__main__":
                 break
             except ValueError:
                 print("   Formato de fecha incorrecto. Intenta de nuevo.")
-        
+
         while True:
             hora_input = input("   Ingresa la hora (HH:MM, formato 24h): ").strip()
             try:
@@ -116,17 +144,17 @@ if __name__ == "__main__":
                 break
             except ValueError:
                 print("   Formato de hora incorrecto. Intenta de nuevo.")
-        
+
         print(f"\n   Post programado para: {fecha_input} a las {hora_input}")
     else:
         print("\n   Publicando con fecha y hora actual.")
 
     print("\nCopiando imagen...")
     nombre_imagen = os.path.basename(ruta_imagen_origen)
-    agregar_imagen(ruta_imagen_origen, nombre_imagen)
+    agregar_imagen(ruta_imagen_origen, nombre_imagen, tipo_post)
 
     print("\nCreando post...")
-    crear_post(titulo, nombre_imagen, descripcion, categoria, fecha_programada, hora_programada, ubicacion, pelicula, camara, excerpt)
+    crear_post(titulo, nombre_imagen, descripcion, tipo_post, categorias='', fecha_programada=fecha_programada, hora_programada=hora_programada, ubicacion=ubicacion, pelicula=pelicula, camara=camara, excerpt=excerpt)
 
     print("\nSubiendo cambios a GitHub...")
     git_push(f"Nuevo post: {titulo}")

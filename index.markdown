@@ -150,6 +150,8 @@ layout: default
   <a href="{{ site.baseurl }}/">INICIO</a>
   <a href="{{ site.baseurl }}/about">SOBRE MÍ</a>
   <a href="{{ site.baseurl }}/galeria">GALERÍA</a>
+  <a href="{{ site.baseurl }}/digital">DIGITALES</a>
+  <a href="{{ site.baseurl }}/buscador">BUSCADOR</a>
   <a href="{{ site.baseurl }}/contact">CONTACTO</a>
 </nav>
 

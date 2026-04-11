@@ -1,0 +1,16 @@
+---
+    layout: default
+    title: "Comercio"
+    date: 2026-04-11 12:00:00 -0300
+    categories: analogica
+    thumbnail: "DSC_6903.jpg"
+tags: [comercio]
+    
+location: "Nicanor Olivera"
+film: "Nikon d3400"
+image: /assets/imagenes/DSC_6903.jpg
+---
+
+<img src="{{ site.baseurl }}/assets/imagenes/DSC_6903.jpg" alt="Comercio" style="max-width: 100%; border: 1px solid #ddd; margin-bottom: 18px;" />
+
+Un comercio en Nicanor Olivera
